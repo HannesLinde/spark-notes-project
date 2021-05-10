@@ -8,6 +8,9 @@
     <div class="text-sm text-right text-gray-400 mt-4">
       {{ new Date(note.createdAt).toLocaleDateString() }}
     </div>
+    <router-link :to="{ name: 'Dashboard' }"
+      >Back to notes dashboard</router-link
+    >
   </div>
 </template>
 

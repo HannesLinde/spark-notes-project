@@ -1,5 +1,12 @@
 <template>
   <div class="p-4 max-w-screen-sm mx-auto">
+    <div class="flex justify-center">
+      <router-link
+        :to="{ name: 'CreateNote' }"
+        class="font-semibold border border-solid border-indigo-500 px-2 py-1"
+        >Take a note</router-link
+      >
+    </div>
     <router-link
       class="block border-b py-4"
       :to="{ name: 'Note', params: { id: note.id } }"
@@ -12,6 +19,7 @@
             {{ note.collection }}
           </h3>
           <h2 class="text-lg font-medium">{{ note.title }}</h2>
+          <span class="text-gray-400 text-xs"> by {{ note.createdBy }}</span>
         </header>
         <p>{{ note.content }}</p>
         <p class="text-sm text-gray-400 mt-2 text-right">
