@@ -4,6 +4,9 @@
       <header class="flex flex-col mb-4">
         <h2 class="text-indigo-500 text-lg">{{ note.collection }}</h2>
         <input v-model="title" @blur="submit" class="text-4xl font-medium" />
+        <p v-if="titleError" class="px-2 mt-1 text-xs text-red-600">
+          {{ titleError }}
+        </p>
         <h3 class="text-sm text-gray-400 mt-4">
           <a :href="`mailto:${$store.state.user.email}`" class="hover:underline"
             >Mail note creator</a
@@ -53,7 +56,6 @@ export default Vue.extend({
       note: {},
       content: "",
       title: "",
-      titleError: "",
       submitError: "",
       titleTouched: false,
     };
@@ -64,6 +66,15 @@ export default Vue.extend({
     this.note = response.data;
     this.content = response.data.content;
     this.title = response.data.title;
+  },
+  computed: {
+    titleError() {
+      if (!this.titleTouched || this.title.length >= 1) {
+        return "";
+      } else {
+        return "Please enter a title";
+      }
+    },
   },
   methods: {
     validate() {

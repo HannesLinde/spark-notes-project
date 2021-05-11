@@ -25,8 +25,17 @@
         <p class="text-sm text-gray-400 mt-2 text-right">
           {{ new Date(note.createdAt).toLocaleDateString() }}
         </p>
-      </div></router-link
-    >
+      </div>
+      <button
+        @click.prevent="deleteNote(note.id)"
+        class="text-indigo-500 border border-gray-500 border-solid px-2 py-1 hover:bg-gray-300 hover:text-indigo-800"
+      >
+        Delete
+      </button>
+      <p v-if="submitError" class="px-2 mt-1 text-xs text-red-600">
+        {{ submitError }}
+      </p>
+    </router-link>
     <div class="flex mt-8 justify-end">
       <button @click="logout" class="text-sm hover:text-indigo-600">
         Logout
@@ -44,17 +53,40 @@ export default Vue.extend({
   data() {
     return {
       notes: [],
+      note: {},
       userId: this.$store.state.user.id,
+      submitError: "",
     };
   },
   async mounted() {
-    const response = await axios.get("http://localhost:3000/notes");
-    this.notes = response.data;
+    this.getNotes();
   },
   methods: {
+    async getNotes() {
+      const response = await axios.get("http://localhost:3000/notes");
+      this.notes = response.data;
+    },
+
     logout() {
       this.$store.commit("CLEAR");
       this.$router.push({ name: "Login" });
+    },
+    async deleteNote(id: string | number) {
+      try {
+        console.log(id);
+        const response = await axios.delete(
+          `http://localhost:3000/notes/${id}`
+        );
+        this.note = response.data;
+        return response;
+      } catch (error) {
+        this.submitError =
+          "Sorry, your note could not be deleted due to: " + error;
+      } finally {
+        this.getNotes();
+        this.$router.push("/");
+        console.log("Message " + id + " was deleted!");
+      }
     },
   },
 });
