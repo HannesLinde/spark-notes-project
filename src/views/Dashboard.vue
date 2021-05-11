@@ -5,7 +5,7 @@
       @click="showConfirmation = false"
       class="w-screen h-screen fixed bg-red-200 opacity-80 inset-0 grid place-items-center"
     >
-      <DeletionConfirmation />
+      <DeletionConfirmation :id="selectedId" />
     </div>
     <div class="flex justify-center">
       <router-link
@@ -34,7 +34,7 @@
         </p>
       </div>
       <button
-        @click="showConfirmation = true"
+        @click.prevent="deleteButton(note.id)"
         class="text-indigo-500 border border-gray-500 border-solid px-2 py-1 hover:bg-gray-300 hover:text-indigo-800"
       >
         Delete
@@ -54,6 +54,7 @@
 <script lang="ts">
 import Vue from "vue";
 import axios from "axios";
+import DeletionConfirmation from "@/components/DeletionConfirmation.vue";
 
 export default Vue.extend({
   name: "Dashboard",
@@ -64,12 +65,17 @@ export default Vue.extend({
       userId: this.$store.state.user.id,
       submitError: "",
       showConfirmation: false,
+      selectedId: "",
     };
   },
   async mounted() {
     this.getNotes();
   },
   methods: {
+    deleteButton(id: string) {
+      this.showConfirmation = true;
+      this.selectedId = id;
+    },
     async getNotes() {
       const response = await axios.get("http://localhost:3000/notes");
       this.notes = response.data;
@@ -79,23 +85,9 @@ export default Vue.extend({
       this.$store.commit("CLEAR");
       this.$router.push({ name: "Login" });
     },
-    async deleteNote(id: string | number) {
-      try {
-        console.log(id);
-        const response = await axios.delete(
-          `http://localhost:3000/notes/${id}`
-        );
-        this.note = response.data;
-        return response;
-      } catch (error) {
-        this.submitError =
-          "Sorry, your note could not be deleted due to: " + error;
-      } finally {
-        this.getNotes();
-        this.$router.push("/");
-        console.log("Message " + id + " was deleted!");
-      }
-    },
+  },
+  components: {
+    DeletionConfirmation,
   },
 });
 </script>

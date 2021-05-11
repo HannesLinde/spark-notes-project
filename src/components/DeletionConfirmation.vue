@@ -31,15 +31,15 @@ export default Vue.extend({
       showConfirmation: false,
       note: {},
       submitError: "",
+      notes: [],
     };
   },
   methods: {
     async deleteNote() {
-      const id = this.$route.params.id;
       try {
         console.log("Hi");
         const response = await axios.delete(
-          `http://localhost:3000/notes/${id}`
+          `http://localhost:3000/notes/${this.id}`
         );
         this.note = response.data;
         return response;
@@ -48,8 +48,13 @@ export default Vue.extend({
           error;
       } finally {
         this.$router.push("/");
-        console.log("Message " + id + " was deleted!");
+        console.log("Message " + this.id + " was deleted!");
       }
+    },
+  },
+  props: {
+    id: {
+      type: String,
     },
   },
 });

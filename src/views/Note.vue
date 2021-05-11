@@ -5,7 +5,7 @@
       @click="showConfirmation = false"
       class="w-screen h-screen fixed bg-red-200 opacity-80 inset-0 grid place-items-center"
     >
-      <DeletionConfirmation />
+      <DeletionConfirmation :id="this.$route.params.id" />
     </div>
     <header class="flex flex-col mb-4">
       <h2 class="text-indigo-500 text-lg">{{ note.collection }}</h2>
@@ -52,7 +52,7 @@
 <script lang="ts">
 import Vue from "vue";
 import axios from "axios";
-import DeletionConfirmation from "@/components/DeletionConfirmation.vue";
+import DeletionConfirmation from "../components/DeletionConfirmation.vue";
 
 const now = new Date();
 
