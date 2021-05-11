@@ -2,11 +2,11 @@
   "notes": [
     {
       "id": "1",
-      "title": "First note",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio explicabo aperiam et mollitia neque eum, nostrum saepe dolores nemo ipsum.",
+      "title": "First note edited over and over",
+      "content": "Again, again, again",
       "collection": "Personal",
       "createdAt": "2021-05-05T13:03:52.363Z",
-      "updatedAt": "2021-05-05T13:03:52.363Z",
+      "updatedAt": "2021-05-11T09:29:16.143Z",
       "createdBy": "user-1"
     },
     {

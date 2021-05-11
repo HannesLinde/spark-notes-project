@@ -5,7 +5,7 @@
     </div>
 
     <form @submit.prevent="submit" class="space-y-4">
-      <div class="flex items-stretch">
+      <div>
         <label for="title" class="sr-only">Title</label>
         <input
           type="text"
@@ -33,16 +33,22 @@
           type="submit"
           class="bg-indigo-500 py-1 px-2 text-white font-semibold rounded-lg hover:bg-indigo-300"
         >
-          Create
+          Update
         </button>
       </div>
     </form>
     <p v-if="submitError" class="px-2 mt-1 text-xs text-red-600">
       {{ submitError }}
     </p>
-    <router-link :to="{ name: 'Dashboard' }" class="margin hover:underline"
-      >Back to Dashboard</router-link
-    >
+    <div class="grid grid-cols-3">
+      <div></div>
+      <div></div>
+      <router-link
+        :to="{ name: 'Dashboard' }"
+        class="text-indigo-600 font-semibold hover:underline hover:text-indigo-300"
+        >Back to Dashboard</router-link
+      >
+    </div>
   </div>
 </template>
 
@@ -72,17 +78,17 @@ export default Vue.extend({
       if (!this.validate()) return;
 
       try {
-        const response = await axios.post("http://localhost:3000/notes", {
-          title: this.title,
-          content: this.content,
-          collection: "Personal",
-
-          createdAt: now,
-          updatedAt: now,
-          createdBy: this.$store.state.user.id,
-        });
-        console.log(response);
+        const id = this.$route.params.id;
+        const response = await axios.patch(
+          `http://localhost:3000/notes/${id}`,
+          {
+            title: this.title,
+            content: this.content,
+            updatedAt: now,
+          }
+        );
         this.$router.push("/");
+        return response;
       } catch (error) {
         (this.submitError = "Sorry, your note could not be saved due to: "),
           error;
@@ -97,6 +103,12 @@ export default Vue.extend({
         return "Please enter a title";
       }
     },
+  },
+  async mounted() {
+    const id = this.$route.params.id;
+    const response = await axios.get("http://localhost:3000/notes/" + id);
+    this.title = response.data.title;
+    this.content = response.data.content;
   },
 });
 </script>
