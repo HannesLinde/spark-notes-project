@@ -19,7 +19,7 @@
             {{ note.collection }}
           </h3>
           <h2 class="text-lg font-medium">{{ note.title }}</h2>
-          <span class="text-gray-400 text-xs"> by {{ note.createdBy }}</span>
+          <span class="text-gray-400 text-xs"> by {{ userId }}</span>
         </header>
         <p>{{ note.content }}</p>
         <p class="text-sm text-gray-400 mt-2 text-right">
@@ -44,6 +44,7 @@ export default Vue.extend({
   data() {
     return {
       notes: [],
+      userId: this.$store.state.user.id,
     };
   },
   async mounted() {
