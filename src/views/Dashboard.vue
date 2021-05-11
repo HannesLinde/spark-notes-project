@@ -1,5 +1,12 @@
 <template>
   <div class="p-4 max-w-screen-sm mx-auto">
+    <div
+      v-if="showConfirmation"
+      @click="showConfirmation = false"
+      class="w-screen h-screen fixed bg-red-200 opacity-80 inset-0 grid place-items-center"
+    >
+      <DeletionConfirmation />
+    </div>
     <div class="flex justify-center">
       <router-link
         :to="{ name: 'CreateNote' }"
@@ -27,7 +34,7 @@
         </p>
       </div>
       <button
-        @click.prevent="deleteNote(note.id)"
+        @click="showConfirmation = true"
         class="text-indigo-500 border border-gray-500 border-solid px-2 py-1 hover:bg-gray-300 hover:text-indigo-800"
       >
         Delete
@@ -56,6 +63,7 @@ export default Vue.extend({
       note: {},
       userId: this.$store.state.user.id,
       submitError: "",
+      showConfirmation: false,
     };
   },
   async mounted() {

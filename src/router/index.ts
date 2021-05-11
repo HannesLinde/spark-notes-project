@@ -6,7 +6,6 @@ import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
 import store from "../store/index";
 import CreateNote from "../views/CreateNote.vue"
-import EditNote from "../views/EditNote.vue"
 
 Vue.use(VueRouter);
 
@@ -38,12 +37,7 @@ const routes: Array<RouteConfig> = [
     component: Note,
     props: true,
   },
-  {
-    path: "/edit-note/:id",
-    name: "EditNote",
-    component: EditNote,
-    props: true,
-  },
+
   {
     path: "/create-note",
     name: "CreateNote",
