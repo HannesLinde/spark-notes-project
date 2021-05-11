@@ -2,80 +2,12 @@
   "notes": [
     {
       "id": "1",
-      "title": "First note edited over and over",
-      "content": "Again, again, again",
+      "title": "First note edited over and over on blur",
+      "content": "Again, again, again edited erewrwer",
       "collection": "Personal",
       "createdAt": "2021-05-05T13:03:52.363Z",
-      "updatedAt": "2021-05-11T09:29:16.143Z",
+      "updatedAt": "2021-05-11T10:01:16.672Z",
       "createdBy": "user-1"
-    },
-    {
-      "id": "2",
-      "title": "Second note",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio explicabo aperiam et mollitia neque eum, nostrum saepe dolores nemo ipsum.",
-      "collection": "Personal",
-      "createdAt": "2021-05-05T13:04:24.421Z",
-      "updatedAt": "2021-05-05T13:04:24.421Z",
-      "deletedAt": "2021-05-05T13:07:38.547Z",
-      "createdBy": "user-1"
-    },
-    {
-      "id": "3",
-      "title": "Third note",
-      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio explicabo aperiam et mollitia neque eum, nostrum saepe dolores nemo ipsum.",
-      "collection": "Todo",
-      "createdAt": "2021-05-05T13:06:32.240Z",
-      "updatedAt": "2021-05-05T13:06:32.240Z",
-      "createdBy": "user-1"
-    },
-    {
-      "title": "no title error",
-      "content": "testtest",
-      "createdAt": "2021-05-10T13:26:47.388Z",
-      "updatedAt": "2021-05-10T13:26:47.388Z",
-      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
-      "id": "iku8haf"
-    },
-    {
-      "title": "",
-      "content": "",
-      "createdAt": "2021-05-10T13:27:33.049Z",
-      "updatedAt": "2021-05-10T13:27:33.049Z",
-      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
-      "id": "vdiz6LX"
-    },
-    {
-      "title": "sds",
-      "content": "fsdfsdf",
-      "createdAt": "2021-05-10T13:37:37.924Z",
-      "updatedAt": "2021-05-10T13:37:37.924Z",
-      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
-      "id": "UriP0_V"
-    },
-    {
-      "title": "54645646",
-      "content": "sdfsdf",
-      "createdAt": "2021-05-10T13:37:37.924Z",
-      "updatedAt": "2021-05-10T13:37:37.924Z",
-      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
-      "id": "d6lcMVr"
-    },
-    {
-      "title": "",
-      "content": "",
-      "createdAt": "2021-05-10T13:37:37.924Z",
-      "updatedAt": "2021-05-10T13:37:37.924Z",
-      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
-      "id": "6sDN3lr"
-    },
-    {
-      "title": "Test validate()",
-      "content": "can we go now?",
-      "collection": "Personal",
-      "createdAt": "2021-05-11T08:09:06.281Z",
-      "updatedAt": "2021-05-11T08:09:06.281Z",
-      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
-      "id": "X3iu_rv"
     }
   ]
 }

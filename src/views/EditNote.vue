@@ -1,7 +1,7 @@
 <template>
   <div class="p-4 max-w-screen-sm mx-auto">
-    <div class="flex justify-center">
-      <h1 class="font-semibold underline px-2 py-1">Take a note</h1>
+    <div class="flex flex-col">
+      <h2 class="text-indigo-500 text-lg">{{ note.collection }}</h2>
     </div>
 
     <form @submit.prevent="submit" class="space-y-4">
@@ -12,8 +12,11 @@
           name="title"
           placeholder="Title"
           v-model="title"
-          @blur="titleTouched = true"
-          class="bg-transparent w-full text-center focus:outline-none border border-transparent focus:border-indigo-600"
+          @blur="
+            titleTouched = true;
+            submit;
+          "
+          class="bg-transparent w-full text-center text-2xl focus:outline-none border border-transparent focus:border-indigo-600"
         />
       </div>
       <p v-if="titleError" class="px-2 mt-1 text-xs text-red-600">
@@ -26,21 +29,17 @@
           v-model="content"
           rows="10"
           class="bg-transparent w-full focus:outline-none border border-transparent focus:border-indigo-600"
+          @blur="submit"
         />
-      </div>
-      <div class="flex justify-center">
-        <button
-          type="submit"
-          class="bg-indigo-500 py-1 px-2 text-white font-semibold rounded-lg hover:bg-indigo-300"
-        >
-          Update
-        </button>
       </div>
     </form>
     <p v-if="submitError" class="px-2 mt-1 text-xs text-red-600">
       {{ submitError }}
     </p>
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-3 grid-rows-2">
+      <button @click="deleteNote">Delete</button>
+      <div></div>
+      <div></div>
       <div></div>
       <div></div>
       <router-link
@@ -61,6 +60,7 @@ const now = new Date();
 export default Vue.extend({
   data() {
     return {
+      note: {},
       title: "",
       content: "",
       titleTouched: false,
@@ -87,11 +87,28 @@ export default Vue.extend({
             updatedAt: now,
           }
         );
-        this.$router.push("/");
+        this.note = response.data;
         return response;
       } catch (error) {
         (this.submitError = "Sorry, your note could not be saved due to: "),
           error;
+      }
+    },
+    async deleteNote() {
+      const id = this.$route.params.id;
+      try {
+        console.log("Hi");
+        const response = await axios.delete(
+          `http://localhost:3000/notes/${id}`
+        );
+        this.note = response.data;
+        return response;
+      } catch (error) {
+        (this.submitError = "Sorry, your note could not be deleted due to: "),
+          error;
+      } finally {
+        this.$router.push("/");
+        console.log("Message " + id + " was deleted!");
       }
     },
   },
@@ -107,6 +124,7 @@ export default Vue.extend({
   async mounted() {
     const id = this.$route.params.id;
     const response = await axios.get("http://localhost:3000/notes/" + id);
+    this.note = response.data;
     this.title = response.data.title;
     this.content = response.data.content;
   },
