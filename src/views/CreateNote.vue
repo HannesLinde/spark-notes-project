@@ -60,10 +60,15 @@ export default Vue.extend({
     };
   },
   methods: {
+    validate() {
+      this.titleTouched = true;
+      if (this.titleError) return false;
+      return true;
+    },
     async submit() {
       console.log("Submitttti!");
-      this.titleTouched = true;
-      if (this.titleError) return;
+      if (!this.validate()) return;
+
       try {
         const response = await axios.post("http://localhost:3000/notes", {
           title: this.title,
