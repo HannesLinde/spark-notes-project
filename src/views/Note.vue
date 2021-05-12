@@ -7,9 +7,14 @@
     >
       <DeletionConfirmation :id="this.$route.params.id" />
     </div>
+    <NavigationBar />
     <header class="flex flex-col mb-4">
       <h2 class="text-indigo-500 text-lg">{{ note.collection }}</h2>
-      <input v-model="title" @blur="submit" class="text-4xl font-medium" />
+      <input
+        v-model="title"
+        @blur="submit"
+        class="text-4xl font-medium bg-gray-100 p-2 focus:outline-none border border-transparent focus:border-indigo-600"
+      />
       <p v-if="titleError" class="px-2 mt-1 text-xs text-red-600">
         {{ titleError }}
       </p>
@@ -23,22 +28,16 @@
       v-model="content"
       placeholder="Content"
       rows="10"
-      class="bg-transparent w-full focus:outline-none border border-transparent focus:border-indigo-600"
+      class="bg-transparent w-full bg-gray-100 p-2 focus:outline-none border border-transparent focus:border-indigo-600"
       @blur="submit"
     />
     <div class="text-sm text-right text-gray-400 my-4">
       {{ new Date(note.createdAt).toLocaleDateString() }}
     </div>
-    <div class="grid grid-cols-3 space-x-4">
-      <router-link
-        :to="{ name: 'Dashboard' }"
-        class="text-gray-500 border border-indigo-500 border-solid px-2 py-1 hover:bg-indigo-300 hover:text-gray-800"
-        >Back to notes dashboard</router-link
-      >
-      <div></div>
+    <div class="flex justify-center space-x-4">
       <button
         @click="showConfirmation = true"
-        class="text-indigo-500 border border-gray-500 border-solid px-2 py-1 hover:bg-gray-300 hover:text-indigo-800"
+        class="text-red-600 border border-gray-500 boder border-solid rounded-md px-2 py-1 hover:bg-red-600 hover:text-indigo-800"
       >
         Delete
       </button>
@@ -53,6 +52,7 @@
 import Vue from "vue";
 import axios from "axios";
 import DeletionConfirmation from "../components/DeletionConfirmation.vue";
+import NavigationBar from "@/components/NavigationBar.vue";
 
 const now = new Date();
 
@@ -113,6 +113,7 @@ export default Vue.extend({
   },
   components: {
     DeletionConfirmation,
+    NavigationBar,
   },
 });
 </script>

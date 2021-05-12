@@ -1,8 +1,6 @@
 <template>
   <div class="p-4 max-w-screen-sm mx-auto">
-    <div class="flex justify-center">
-      <h1 class="font-semibold underline px-2 py-1">Take a note</h1>
-    </div>
+    <NavigationBar :showCreateButton="false" />
 
     <form @submit.prevent="submit" class="space-y-4">
       <div class="flex items-stretch">
@@ -10,7 +8,7 @@
         <input
           type="text"
           name="title"
-          placeholder="Title"
+          placeholder="Enter your note title"
           v-model="title"
           @blur="titleTouched = true"
           class="bg-transparent w-full text-center focus:outline-none border border-transparent focus:border-indigo-600"
@@ -28,6 +26,11 @@
           class="bg-transparent w-full focus:outline-none border border-transparent focus:border-indigo-600"
         />
       </div>
+      <select v-model="selectedCollection">
+        <option value="Job">Job</option>
+        <option value="ToDo">Todo</option>
+        <option value="Personal" checked>Personal</option>
+      </select>
       <div class="flex justify-center">
         <button
           type="submit"
@@ -49,6 +52,7 @@
 <script>
 import Vue from "vue";
 import axios from "axios";
+import NavigationBar from "@/components/NavigationBar.vue";
 
 const now = new Date();
 
@@ -59,6 +63,7 @@ export default Vue.extend({
       content: "",
       titleTouched: false,
       submitError: "",
+      selectedCollection: "Personal",
     };
   },
   methods: {
@@ -75,8 +80,7 @@ export default Vue.extend({
         const response = await axios.post("http://localhost:3000/notes", {
           title: this.title,
           content: this.content,
-          collection: "Personal",
-
+          collection: this.selectedCollection,
           createdAt: now,
           updatedAt: now,
           createdBy: this.$store.state.user.id,
@@ -97,6 +101,9 @@ export default Vue.extend({
         return "Please enter a title";
       }
     },
+  },
+  components: {
+    NavigationBar,
   },
 });
 </script>
