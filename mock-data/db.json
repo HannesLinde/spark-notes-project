@@ -1,49 +1,94 @@
 {
   "notes": [
     {
-      "title": "One note to rule them all",
-      "content": "One note to rule them allOne note to rule them allOne note to rule them allOne note to rule them all\nOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them all\n\nOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them all\n\nOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them all",
-      "collection": "Personal",
-      "createdAt": "2021-05-12T07:08:25.056Z",
-      "updatedAt": "2021-05-12T09:04:55.672Z",
+      "title": "My first job note",
+      "content": "Work work work",
+      "collection": "Job",
+      "createdAt": "2021-05-12T10:07:10.025Z",
+      "updatedAt": "2021-05-12T10:07:10.025Z",
       "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
       "id": 1
     },
     {
-      "title": "Another Note is coming",
-      "content": "Let us make a second note. Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.\nLet us make a second note.Let us make a second note.\n\n\nLet us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.",
-      "collection": "Personal",
-      "createdAt": "2021-05-12T07:08:25.056Z",
-      "updatedAt": "2021-05-12T07:08:25.056Z",
+      "title": "Next job note",
+      "content": "Work more, work harder. Love it.",
+      "collection": "Job",
+      "createdAt": "2021-05-12T10:07:10.025Z",
+      "updatedAt": "2021-05-12T10:07:10.025Z",
       "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
       "id": 2
     },
     {
-      "title": "saddsd",
-      "content": "sad",
-      "collection": "",
-      "createdAt": "2021-05-12T09:44:24.133Z",
-      "updatedAt": "2021-05-12T09:44:24.133Z",
+      "title": "Ein ToDo",
+      "content": "asdfsdfsdfds",
+      "collection": "ToDo",
+      "createdAt": "2021-05-12T10:07:10.025Z",
+      "updatedAt": "2021-05-12T10:07:10.025Z",
       "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
       "id": 3
     },
     {
-      "title": "aaaaaaa",
-      "content": "aaaa",
-      "collection": "",
-      "createdAt": "2021-05-12T09:44:51.137Z",
-      "updatedAt": "2021-05-12T09:44:51.137Z",
+      "title": "Another To Do",
+      "content": "sadasd",
+      "collection": "ToDo",
+      "createdAt": "2021-05-12T10:07:10.025Z",
+      "updatedAt": "2021-05-12T10:07:10.025Z",
       "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
       "id": 4
     },
     {
-      "title": "New note todo",
-      "content": "dsfsdfsdf",
-      "collection": "ToDo",
-      "createdAt": "2021-05-12T09:52:00.841Z",
-      "updatedAt": "2021-05-12T09:52:00.841Z",
+      "title": "Warum zweri Klicks",
+      "content": "One dlick, empty dashboard, another click full dashboard",
+      "collection": "Personal",
+      "createdAt": "2021-05-12T10:15:04.374Z",
+      "updatedAt": "2021-05-12T10:15:04.374Z",
       "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
       "id": 5
+    },
+    {
+      "title": "asd",
+      "content": "sadsad",
+      "collection": "Job",
+      "createdAt": "2021-05-12T10:15:04.374Z",
+      "updatedAt": "2021-05-12T10:15:04.374Z",
+      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
+      "id": 6
+    },
+    {
+      "title": "Newest notest",
+      "content": "Is this filtered already?\n",
+      "collection": "ToDo",
+      "createdAt": "2021-05-12T10:18:56.049Z",
+      "updatedAt": "2021-05-12T10:18:56.049Z",
+      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
+      "id": 7
+    },
+    {
+      "title": "Another Note is coming",
+      "content": "Is this fdisplayed in filteredresults, too?",
+      "collection": "ToDo",
+      "createdAt": "2021-05-12T11:59:36.272Z",
+      "updatedAt": "2021-05-12T11:59:36.272Z",
+      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
+      "id": 8
+    },
+    {
+      "title": "New note for Nastia",
+      "content": "sfsadsad",
+      "collection": "Personal",
+      "createdAt": "2021-05-12T12:00:29.033Z",
+      "updatedAt": "2021-05-12T12:00:29.033Z",
+      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
+      "id": 9
+    },
+    {
+      "title": "newest not ever 14:04",
+      "content": "Now",
+      "collection": "Personal",
+      "createdAt": "2021-05-12T12:00:29.033Z",
+      "updatedAt": "2021-05-12T12:00:29.033Z",
+      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
+      "id": 10
     }
   ]
 }

@@ -7,17 +7,18 @@
     >
       <DeletionConfirmation :id="selectedId" />
     </div>
-    <NavigationBar :showDashboardButton="false" />
-    <input
-      v-if="$route.path == '/'"
-      type="text"
-      placeholder="search"
-      v-model="keyword"
-      @keyup="filteredNotes"
+    <NavigationBar
+      :showDashboardButton="false"
+      @update:keyword="keyword = $event"
     />
-    <!-- <NoteItem :notes="filteredNotes" /> -->
-
-    <NoteItem v-for="note in notes" :key="note.id" :note="note" />
+    <div v-if="filteredNotes.length != 0">
+      <h2 class="text-2xl">Search</h2>
+      <NoteList :notes="filteredNotes" />
+    </div>
+    <div v-if="filteredNotes.length == 0">
+      <h2 class="text-2xl">All my notes</h2>
+      <NoteList :notes="notes" @request:delete="showConfirmation = true" />
+    </div>
   </div>
 </template>
 
@@ -26,7 +27,7 @@ import Vue from "vue";
 import axios from "axios";
 import DeletionConfirmation from "@/components/DeletionConfirmation.vue";
 import NavigationBar from "@/components/NavigationBar.vue";
-import NoteItem from "@/components/NoteItem.vue";
+import NoteList from "@/components/NoteList.vue";
 
 export default Vue.extend({
   name: "Dashboard",
@@ -55,6 +56,9 @@ export default Vue.extend({
   },
   computed: {
     filteredNotes() {
+      if (this.keyword.length < 2) {
+        return [];
+      }
       return this.notes.filter((note) => {
         return (
           note.title.toLowerCase().includes(this.keyword.toLowerCase()) ||
@@ -65,11 +69,20 @@ export default Vue.extend({
     todoItems() {
       return this.notes.filter((note) => note.collection == "ToDo");
     },
+    personalItems() {
+      return this.notes.filter((note) => note.collection == "Personal");
+    },
+    jobItems() {
+      return this.notes.filter((note) => note.collection == "Job");
+    },
+    randomItems() {
+      return this.notes.filter((note) => note.collection == "");
+    },
   },
   components: {
     DeletionConfirmation,
     NavigationBar,
-    NoteItem,
+    NoteList,
   },
 });
 </script>

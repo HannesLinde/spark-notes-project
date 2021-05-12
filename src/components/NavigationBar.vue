@@ -15,6 +15,12 @@
         v-if="showDashboardButton"
         >Back to notes dashboard</router-link
       >
+      <input
+        type="text"
+        placeholder="search"
+        @input="$emit('update:keyword', $event.target.value)"
+      />
+
       <button @click="logout" class="text-sm hover:text-indigo-500">
         Logout
       </button>

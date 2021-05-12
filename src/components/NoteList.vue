@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <div class="grid grid-cols-5 space-x-2 border-b">
+  <div class="border-b-4 border-indigo-100">
+    <div
+      v-for="note in notes"
+      :key="note.id"
+      class="grid grid-cols-5 space-x-2 border-b"
+    >
       <router-link
         class="block py-4 col-span-4"
         :to="{ name: 'Note', params: { id: note.id } }"
@@ -21,7 +25,12 @@
         </div>
       </router-link>
       <div class="flex place-items-start pt-4">
-        <DeleteButton />
+        <button
+          @click="$emit('request:delete')"
+          class="text-red-600 border border-gray-500 boder border-solid rounded-md px-2 py-1 hover:bg-red-600 hover:text-indigo-800"
+        >
+          Delete
+        </button>
       </div>
     </div>
   </div>
@@ -31,9 +40,14 @@
 import Vue from "vue";
 
 export default Vue.extend({
+  data() {
+    return {
+      showConfirmation: false,
+    };
+  },
   props: {
-    note: {
-      type: Object,
+    notes: {
+      type: [],
     },
   },
 });
