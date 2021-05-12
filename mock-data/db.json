@@ -1,3 +1,22 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "title": "One note to rule them all",
+      "content": "One note to rule them allOne note to rule them allOne note to rule them allOne note to rule them all\nOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them all\n\nOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them all\n\nOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them allOne note to rule them all",
+      "collection": "Personal",
+      "createdAt": "2021-05-12T07:08:25.056Z",
+      "updatedAt": "2021-05-12T07:08:25.056Z",
+      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
+      "id": 1
+    },
+    {
+      "title": "Another Note is coming",
+      "content": "Let us make a second note. Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.\nLet us make a second note.Let us make a second note.\n\n\nLet us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.Let us make a second note.",
+      "collection": "Personal",
+      "createdAt": "2021-05-12T07:08:25.056Z",
+      "updatedAt": "2021-05-12T07:08:25.056Z",
+      "createdBy": "ad8da80e-fd21-4f47-8ed8-2f6ed688aaf3",
+      "id": 2
+    }
+  ]
 }
