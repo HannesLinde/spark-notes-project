@@ -15,9 +15,34 @@
       <h2 class="text-2xl">Search</h2>
       <NoteList :notes="filteredNotes" />
     </div>
+    <div class="flex flex-start space-x-4">
+      <h2
+        class="text-xs cursor-pointer text-indigo-800 hover:underline"
+        @click="collection = ''"
+      >
+        #AllNotes
+      </h2>
+      <span
+        class="text-xs text-indigo-500 hover:underline cursor-pointer"
+        @click="collection = 'ToDo'"
+        >#ToDos</span
+      >
+      <span
+        class="text-xs text-indigo-500 hover:underline cursor-pointer"
+        @click="collection = 'Job'"
+        >#Job</span
+      >
+      <span
+        class="text-xs text-indigo-500 hover:underline cursor-pointer"
+        @click="collection = 'Personal'"
+        >#Personal</span
+      >
+    </div>
     <div v-if="filteredNotes.length == 0">
-      <h2 class="text-2xl">All my notes</h2>
-      <NoteList :notes="notes" @request:delete="showConfirmation = true" />
+      <NoteList
+        :notes="getCollection"
+        @request:delete="showConfirmation = true"
+      />
     </div>
   </div>
 </template>
@@ -39,6 +64,7 @@ export default Vue.extend({
       showConfirmation: false,
       selectedId: "",
       keyword: "",
+      collection: "",
     };
   },
   async mounted() {
@@ -66,17 +92,11 @@ export default Vue.extend({
         );
       });
     },
-    todoItems() {
-      return this.notes.filter((note) => note.collection == "ToDo");
-    },
-    personalItems() {
-      return this.notes.filter((note) => note.collection == "Personal");
-    },
-    jobItems() {
-      return this.notes.filter((note) => note.collection == "Job");
-    },
-    randomItems() {
-      return this.notes.filter((note) => note.collection == "");
+    getCollection() {
+      if (this.collection == "") {
+        return this.notes;
+      }
+      return this.notes.filter((note) => note.collection == this.collection);
     },
   },
   components: {

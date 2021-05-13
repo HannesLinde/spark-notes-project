@@ -8,43 +8,40 @@
       <DeletionConfirmation :id="this.$route.params.id" />
     </div>
     <NavigationBar />
-    <header class="flex flex-col mb-4">
-      <h2 class="text-indigo-500 text-lg">{{ note.collection }}</h2>
+    <header class="flex flex-col bg-gray-200">
+      <h2 class="text-indigo-500 text-lg mx-2">#{{ note.collection }}</h2>
       <input
         v-model="title"
         @blur="submit"
-        class="text-4xl font-medium bg-gray-100 p-2 focus:outline-none border border-transparent focus:border-indigo-600"
+        class="text-4xl font-medium py-2 mx-2 mb-4 focus:outline-none border border-transparent focus:border-indigo-600"
       />
       <p v-if="titleError" class="px-2 mt-1 text-xs text-red-600">
         {{ titleError }}
       </p>
-      <h3 class="text-sm text-gray-400 mt-4">
-        <a :href="`mailto:${$store.state.user.email}`" class="hover:underline"
-          >Mail note creator</a
-        >
-      </h3>
     </header>
-    <input
-      v-model="content"
-      placeholder="Content"
-      rows="10"
-      class="bg-transparent w-full bg-gray-100 p-2 focus:outline-none border border-transparent focus:border-indigo-600"
-      @blur="submit"
-    />
-    <div class="text-sm text-right text-gray-400 my-4">
-      {{ new Date(note.createdAt).toLocaleDateString() }}
-    </div>
-    <div class="flex justify-center space-x-4">
-      <button
-        @click="showConfirmation = true"
-        class="text-red-600 border border-gray-500 boder border-solid rounded-md px-2 py-1 hover:bg-red-600 hover:text-indigo-800"
-      >
-        Delete
-      </button>
-    </div>
-    <p v-if="submitError" class="px-2 mt-1 text-xs text-red-600">
-      {{ submitError }}
-    </p>
+    <main class="bg-gray-400 py-4">
+      <input
+        v-model="content"
+        placeholder="Content"
+        rows="10"
+        class="bg-transparent w-full bg-gray-200 m-2 focus:outline-none border border-transparent focus:border-indigo-600"
+        @blur="submit"
+      />
+      <div class="text-sm text-right text-gray-400 my-4">
+        {{ new Date(note.createdAt).toLocaleDateString() }}
+      </div>
+      <div class="flex justify-center space-x-4">
+        <button
+          @click="showConfirmation = true"
+          class="text-sm border border-gray-500 boder border-solid rounded-md px-1 hover:bg-indigo-300"
+        >
+          Delete
+        </button>
+      </div>
+      <p v-if="submitError" class="px-2 mt-1 text-xs text-red-600">
+        {{ submitError }}
+      </p>
+    </main>
   </div>
 </template>
 

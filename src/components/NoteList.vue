@@ -24,10 +24,10 @@
           </p>
         </div>
       </router-link>
-      <div class="flex place-items-start pt-4">
+      <div class="flex justify-end place-items-start py-4">
         <button
           @click="$emit('request:delete')"
-          class="text-red-600 border border-gray-500 boder border-solid rounded-md px-2 py-1 hover:bg-red-600 hover:text-indigo-800"
+          class="text-sm border border-gray-500 boder border-solid rounded-md px-1 hover:bg-indigo-300"
         >
           Delete
         </button>
