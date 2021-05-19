@@ -7,33 +7,37 @@
     >
       <DeletionConfirmation :id="this.$route.params.id" />
     </div>
-    <NavigationBar />
-    <header class="flex flex-col bg-gray-200">
-      <h2 class="text-indigo-500 text-lg mx-2">#{{ note.collection }}</h2>
+    <NavigationBar :showSearchBar="false" />
+    <header class="flex flex-col bg-gray-200 rounded-tl-lg rounded-tr-lg">
+      <div class="flex justify-between">
+        <h2 class="text-indigo-500 text-lg mx-2">#{{ note.collection }}</h2>
+        <div class="text-sm p-2">
+          {{ new Date(note.createdAt).toLocaleDateString() }}
+        </div>
+      </div>
       <input
+        type="text"
         v-model="title"
         @blur="submit"
-        class="text-4xl font-medium py-2 mx-2 mb-4 focus:outline-none border border-transparent focus:border-indigo-600"
+        class="text-4xl tracking-tight shadow-md font-medium py-2 mx-2 mb-4 rounded-md bg-gray-100 focus:outline-none border border-transparent focus:border-indigo-600"
       />
       <p v-if="titleError" class="px-2 mt-1 text-xs text-red-600">
         {{ titleError }}
       </p>
     </header>
-    <main class="bg-gray-400 py-4">
-      <input
+    <main class="bg-gray-400 py-4 px-2 rounded-bl-lg rounded-br-lg">
+      <textarea
         v-model="content"
         placeholder="Content"
         rows="10"
-        class="bg-transparent w-full bg-gray-200 m-2 focus:outline-none border border-transparent focus:border-indigo-600"
+        class="text-lg w-full bg-gray-100 rounded-md shadow-md focus:outline-none border border-transparent focus:border-indigo-600"
         @blur="submit"
       />
-      <div class="text-sm text-right text-gray-400 my-4">
-        {{ new Date(note.createdAt).toLocaleDateString() }}
-      </div>
+
       <div class="flex justify-center space-x-4">
         <button
           @click="showConfirmation = true"
-          class="text-sm border border-gray-500 boder border-solid rounded-md px-1 hover:bg-indigo-300"
+          class="text-sm tracking-wide border border-gray-500 border-solid rounded-md px-2 py-1 bg-indigo-300 shadow-sm hover:scale-105 transform transition-transform duration-200"
         >
           Delete
         </button>

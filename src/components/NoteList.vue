@@ -3,25 +3,29 @@
     <div
       v-for="note in notes"
       :key="note.id"
-      class="grid grid-cols-5 space-x-2 border-b"
+      class="grid grid-cols-5 space-x-2 border-b bg-yellow-200 rounded-lg px-2 my-1 border-gray-600"
     >
       <router-link
         class="block py-4 col-span-4"
         :to="{ name: 'Note', params: { id: note.id } }"
       >
         <div>
-          <h3 class="text-xs text-indigo-500">
-            {{ note.collection }}
-          </h3>
+          <div class="flex justify-between">
+            <h3 class="text-xs tracking-wide text-indigo-800">
+              #{{ note.collection }}
+            </h3>
+            <div class="text-xs tracking-wide text-gray-700 mt-2 text-right">
+              {{ new Date(note.createdAt).toLocaleDateString() }}
+            </div>
+          </div>
           <h2 class="text-lg font-medium">{{ note.title }}</h2>
-          <span class="text-gray-400 text-xs"> by {{ userId }}</span>
-          <p class="overflow-hidden text-overflow-ellipsis h-12">
+          <span class="text-gray-700 text-xs">
+            by {{ $store.state.user.id }}</span
+          >
+          <p class="overflow-hidden text-overflow-ellipsis h-12 mt-4">
             {{ note.content }}
           </p>
           <span class="font-semibold"> ...</span>
-          <p class="text-sm text-gray-400 mt-2 text-right">
-            {{ new Date(note.createdAt).toLocaleDateString() }}
-          </p>
         </div>
       </router-link>
       <div class="flex justify-end place-items-start py-4">

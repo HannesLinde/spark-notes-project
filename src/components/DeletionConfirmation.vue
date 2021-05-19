@@ -2,20 +2,20 @@
   <div>
     <div
       @click="showConfirmation = false"
-      class="w-screen h-screen fixed bg-red-200 opacity-90 inset-0 grid place-items-center"
+      class="w-screen h-screen fixed bg-red-700 opacity-90 inset-0 grid place-items-center z-10"
     >
-      <div class="flex flex-col">
-        <h2 class="text-2xl">Are you sure you want to delete this note?</h2>
-        <div class="flex justify-center space-x-6">
+      <div class="flex flex-col bg-white p-4">
+        <h2 class="text-2xl p-2">Are you sure you want to delete this note?</h2>
+        <div class="flex justify-center space-x-4">
           <button
             @click="deleteNote"
-            class="bg-red-600 w-16 px-4 py-1 rounded-md border border-black hover:scale-105 transform transition-transform duration-200"
+            class="bg-indigo-300 w-16 px-4 py-1 rounded-md border border-black hover:scale-105 transform transition-transform duration-200"
           >
             Yes
           </button>
           <button
             @click="showConfirmation = false"
-            class="bg-green-600 w-16 px-4 py-1 rounded-md border border-black hover:scale-105 transform transition-transform duration-200"
+            class="bg-indigo-600 w-16 px-4 py-1 rounded-md border border-black hover:scale-105 transform transition-transform duration-200"
           >
             No
           </button>

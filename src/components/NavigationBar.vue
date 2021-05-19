@@ -7,7 +7,6 @@
         <router-link
           :to="{ name: 'CreateNote' }"
           class="rounded-md border border-gray-500 bg-indigo-300 border-solid px-2 py-1 hover:bg-indigo-100 hover:text-gray-800"
-          v-if="showCreateButton"
           >Take a note</router-link
         >
         <router-link
@@ -19,6 +18,7 @@
       </div>
       <div class="flex flex-end space-x-4">
         <input
+          v-if="showSearchBar"
           type="text"
           placeholder="search"
           @input="$emit('update:keyword', $event.target.value)"
@@ -45,7 +45,7 @@ export default Vue.extend({
       type: Boolean,
       default: true,
     },
-    showCreateButton: {
+    showSearchBar: {
       type: Boolean,
       default: true,
     },

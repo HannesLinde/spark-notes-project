@@ -17,23 +17,23 @@
     </div>
     <div class="flex flex-start space-x-4">
       <h2
-        class="text-xs cursor-pointer text-indigo-800 hover:underline"
+        class="text-xs tracking-wide cursor-pointer text-indigo-800 hover:underline"
         @click="collection = ''"
       >
         #AllNotes
       </h2>
       <span
-        class="text-xs text-indigo-500 hover:underline cursor-pointer"
+        class="text-xs tracking-wide text-indigo-500 hover:underline cursor-pointer"
         @click="collection = 'ToDo'"
         >#ToDos</span
       >
       <span
-        class="text-xs text-indigo-500 hover:underline cursor-pointer"
+        class="text-xs tracking-wide text-indigo-500 hover:underline cursor-pointer"
         @click="collection = 'Job'"
         >#Job</span
       >
       <span
-        class="text-xs text-indigo-500 hover:underline cursor-pointer"
+        class="text-xs tracking-wide text-indigo-500 hover:underline cursor-pointer"
         @click="collection = 'Personal'"
         >#Personal</span
       >
