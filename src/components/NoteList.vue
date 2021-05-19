@@ -51,7 +51,7 @@ export default Vue.extend({
   },
   props: {
     notes: {
-      type: [],
+      type: Array,
     },
   },
 });
