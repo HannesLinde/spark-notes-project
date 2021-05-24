@@ -39,10 +39,7 @@
       >
     </div>
     <div v-if="filteredNotes.length == 0">
-      <NoteList
-        :notes="getCollection"
-        @request:delete="showConfirmation = true"
-      />
+      <NoteList :notes="getCollection" @request:delete="deleteButton" />
     </div>
   </div>
 </template>
@@ -76,7 +73,9 @@ export default Vue.extend({
       this.selectedId = id;
     },
     async getNotes() {
-      const response = await axios.get("http://localhost:3000/notes");
+      const response = await axios.get("http://localhost:3000/notes", {
+        headers: { authorization: this.$store.state.token },
+      });
       this.notes = response.data;
     },
   },

@@ -40,10 +40,14 @@ export default Vue.extend({
   },
   methods: {
     async deleteNote() {
+      console.log(this.$route.params.id);
       try {
         console.log("Hi");
         const response = await axios.delete(
-          `http://localhost:3000/notes/${this.id}`
+          `http://localhost:3000/notes/${this.id}`,
+          {
+            headers: { authorization: this.$store.state.token },
+          }
         );
         this.note = response.data;
         return response;
@@ -58,7 +62,7 @@ export default Vue.extend({
   },
   props: {
     id: {
-      type: String,
+      type: Number,
     },
   },
 });

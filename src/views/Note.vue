@@ -70,7 +70,10 @@ export default Vue.extend({
   },
   async mounted() {
     const id = this.$route.params.id;
-    const response = await axios.get("http://localhost:3000/notes/" + id);
+    const response = await axios.get("http://localhost:3000/notes/" + id,
+          {
+            headers: { authorization: this.$store.state.token },
+          });
     this.note = response.data;
     this.content = response.data.content;
     this.title = response.data.title;
@@ -102,9 +105,14 @@ export default Vue.extend({
             title: this.title,
             content: this.content,
             updatedAt: now,
+          },
+          {
+            headers: { authorization: this.$store.state.token },
           }
         );
         this.note = response.data;
+        console.log(this.note);
+        console.log("Updated!");
         return response;
       } catch (error) {
         (this.submitError = "Sorry, your note could not be saved due to: "),

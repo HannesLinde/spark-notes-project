@@ -30,7 +30,7 @@
       </router-link>
       <div class="flex justify-end place-items-start py-4">
         <button
-          @click="$emit('request:delete')"
+          @click="$emit('request:delete', note.id)"
           class="text-sm border border-gray-500 boder border-solid rounded-md px-1 hover:bg-indigo-300"
         >
           Delete

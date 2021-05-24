@@ -77,14 +77,20 @@ export default Vue.extend({
       if (!this.validate()) return;
 
       try {
-        const response = await axios.post("http://localhost:3000/notes", {
-          title: this.title,
-          content: this.content,
-          collection: this.selectedCollection,
-          createdAt: now,
-          updatedAt: now,
-          createdBy: this.$store.state.user.id,
-        });
+        const response = await axios.post(
+          "http://localhost:3000/notes",
+          {
+            title: this.title,
+            content: this.content,
+            collection: this.selectedCollection,
+            createdAt: now,
+            updatedAt: now,
+            createdBy: this.$store.state.user.id,
+          },
+          {
+            headers: { authorization: this.$store.state.token },
+          }
+        );
         console.log(response);
         this.$router.push("/");
       } catch (error) {
