@@ -1,7 +1,6 @@
 <template>
   <div>
     <div
-      @click="showConfirmation = false"
       class="w-screen h-screen fixed bg-red-700 opacity-90 inset-0 grid place-items-center z-10"
     >
       <div class="flex flex-col bg-white p-4">
@@ -14,7 +13,7 @@
             Yes
           </button>
           <button
-            @click="showConfirmation = false"
+            @click="$emit('complete')"
             class="bg-indigo-600 w-16 px-4 py-1 rounded-md border border-black hover:scale-105 transform transition-transform duration-200"
           >
             No
@@ -40,11 +39,10 @@ export default Vue.extend({
   },
   methods: {
     async deleteNote() {
-      console.log(this.$route.params.id);
       try {
         console.log("Hi");
         const response = await axios.delete(
-          `http://localhost:3000/notes/${this.id}`,
+          process.env.VUE_APP_API_SERVER_URL + "/notes/" + this.id,
           {
             headers: { authorization: this.$store.state.token },
           }
@@ -55,7 +53,10 @@ export default Vue.extend({
         (this.submitError = "Sorry, your note could not be deleted due to: "),
           error;
       } finally {
-        this.$router.push("/");
+        if (this.$route.params.id) {
+          this.$router.push("/");
+        }
+        this.$emit("freshNotes");
         console.log("Message " + this.id + " was deleted!");
       }
     },

@@ -70,10 +70,12 @@ export default Vue.extend({
   },
   async mounted() {
     const id = this.$route.params.id;
-    const response = await axios.get("http://localhost:3000/notes/" + id,
-          {
-            headers: { authorization: this.$store.state.token },
-          });
+    const response = await axios.get(
+      process.env.VUE_APP_API_SERVER_URL + "/notes/" + id,
+      {
+        headers: { authorization: this.$store.state.token },
+      }
+    );
     this.note = response.data;
     this.content = response.data.content;
     this.title = response.data.title;
@@ -100,7 +102,7 @@ export default Vue.extend({
       try {
         const id = this.$route.params.id;
         const response = await axios.patch(
-          `http://localhost:3000/notes/${id}`,
+          process.env.VUE_APP_API_SERVER_URL + id,
           {
             title: this.title,
             content: this.content,

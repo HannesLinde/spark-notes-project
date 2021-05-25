@@ -2,10 +2,16 @@
   <div class="p-4 max-w-screen-sm mx-auto">
     <div
       v-if="showConfirmation"
-      @click="showConfirmation = false"
       class="w-screen h-screen fixed bg-red-200 opacity-90 inset-0 grid place-items-center"
     >
-      <DeletionConfirmation :id="selectedId" />
+      <DeletionConfirmation
+        :id="selectedId"
+        @freshNotes="
+          getNotes();
+          showConfirmation = false;
+        "
+        @complete="showConfirmation = false"
+      />
     </div>
     <NavigationBar
       :showDashboardButton="false"
@@ -73,10 +79,15 @@ export default Vue.extend({
       this.selectedId = id;
     },
     async getNotes() {
-      const response = await axios.get("http://localhost:3000/notes", {
-        headers: { authorization: this.$store.state.token },
-      });
+      console.log("getNotes");
+      const response = await axios.get(
+        process.env.VUE_APP_API_SERVER_URL + "/notes",
+        {
+          headers: { authorization: this.$store.state.token },
+        }
+      );
       this.notes = response.data;
+      console.log("getNotesEnd", response.data);
     },
   },
   computed: {

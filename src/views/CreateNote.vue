@@ -78,7 +78,7 @@ export default Vue.extend({
 
       try {
         const response = await axios.post(
-          "http://localhost:3000/notes",
+          process.env.VUE_APP_API_SERVER_URL + "/notes",
           {
             title: this.title,
             content: this.content,
