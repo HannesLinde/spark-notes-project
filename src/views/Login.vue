@@ -1,23 +1,23 @@
 <template>
   <div
-    class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+    class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-yellow-800"
   >
     <div class="max-w-md w-full space-y-8">
       <div>
         <h1
-          class="mx-auto text-6xl font-extrabold text-indigo-600 text-center mb-4"
+          class="mx-auto text-6xl font-extrabold text-yellow-600 text-center mb-4"
         >
           Spark
         </h1>
 
-        <h2 class="text-center mb-4 text-3xl font-extrabold text-gray-900">
+        <h2 class="text-center mb-4 text-3xl font-extrabold text-white">
           Login to your account
         </h2>
-        <p class="text-center">
+        <p class="text-center text-white">
           Don't have an account yet?
           <router-link
             :to="{ name: 'Register' }"
-            class="text-indigo-600 font-semibold hover:underline"
+            class="text-yellow-600 font-semibold hover:underline hover:text-yellow-400"
             >Sign up</router-link
           >
         </p>
@@ -31,12 +31,12 @@
               name="email"
               type="text"
               autocomplete="email"
-              class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10"
+              class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 bg-gray-200 placeholder-gray-700 text-gray-900 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10"
               placeholder="Email address"
               v-model="email"
               @blur="emailTouched = true"
             />
-            <p v-if="emailError" class="px-2 mt-1 text-xs text-red-600">
+            <p v-if="emailError" class="px-2 mt-1 text-sm text-gray-900">
               {{ emailError }}
             </p>
           </div>
@@ -47,12 +47,12 @@
               name="password"
               type="password"
               autocomplete="current-password"
-              class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10"
+              class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 bg-gray-200 placeholder-gray-700 text-gray-900 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10"
               placeholder="Password"
               v-model="password"
               @blur="passwordTouched = true"
             />
-            <p v-if="passwordError" class="px-2 mt-1 text-xs text-red-600">
+            <p v-if="passwordError" class="px-2 mt-1 text-sm text-gray-900">
               {{ passwordError }}
             </p>
           </div>
@@ -61,12 +61,12 @@
         <div>
           <button
             type="submit"
-            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
           >
             <span class="absolute left-0 inset-y-0 flex items-center pl-3">
               <!-- Heroicon name: solid/lock-closed -->
               <svg
-                class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                class="h-5 w-5 text-yellow-600 group-hover:text-yellow-400"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
